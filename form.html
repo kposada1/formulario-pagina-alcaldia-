@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Formulario</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img\round.png" type="image/x-icon">
+
+
+
+  <style>
+    .slidecontainer {
+      width: 100%;
+      padding: 50px;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+
+    }
+
+    .slider:hover {
+      opacity: 2;
+
+    }
+
+    .slider::-webkit-slider-thumb {
+      width: 23px;
+      height: 24px;
+      border: 0;
+      cursor: pointer;
+
+    }
+
+    .slider::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      cursor: pointer;
+
+
+    }
+    #fondo {
+      background-color: azure;
+    }
+
+    .letra {
+      font-size: 19px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    #sub {
+      padding: 50px;
+    }
+
+    .icon {
+      margin-left: 770px;
+    }
+
+    #longitud {
+      padding: 2px;
+      margin: 10px;
+      float: left;
+      width: 250px;
+      margin-top: 50px;
+    }
+
+    #multi {
+      padding: 2px;
+      margin: 10px;
+      float: right;
+      width: 250px;
+      margin-top: 50px;
+    }
+
+    .titulos {
+      font-size: 50px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: black;
+      background-color: #96CDEF;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+    }
+
+    .button:hover {
+      background-color: #F77FB6
+    }
+
+    .button:active {
+      background-color: #F77FB6;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    #margen {
+      padding: 20px;
+      margin-left: 150px;
+      margin-bottom: 50px;
+
+    }
+  </style>
+</head>
+
+<body id="fondo" background="img/fondo.jpeg">
+  <div class="w3-bar w3-black">
+    <a href="index.html" class="w3-bar-item w3-button">Inicio</a>
+    <a href="index.html"><img src="img/fon.png" class="w3-right"
+        style="width: 3%;" alt=""></a>
+    <a href="index.html"><img src="img\kmedellin.png" class="w3-right"
+        style="width: 2%;" alt=""></a>
+    <a href="form.php"><button
+        class="w3-button w3-black w3-trasparent w3-round-large w3-left">Registrarse</button></a>
+  </div>
+
+
+
+  <div class="container" id="linea">
+    <img href="index.html" class="mySlides" src="img/cesde.png" id="longitud"
+      width="35px" height="30px" alt="">
+    <img href="index.html" class="mySlides" src="img/cesde.png" id="multi"
+      width="35px" height="30px" alt=""><span>
+
+      <span>
+        <h3 class="container bg-dark text-white text-24px text-center my-4 w3-panel w3-border w3-round-xxlarge titulo">
+          <b>Bienvenidos</b></h3>
+      </span>
+  </div>
+
+  <div class="container">
+
+
+    <h5 class="container text-center my-4" id="sub"><i>A continuación se te presentará un formulario que debes llenar
+        para optar por el beneficio de la alcadía de Medellín para dar la solución a la problemática del desempleo.</i>
+    </h5>
+
+    <br>
+    <h3 class="titulos container text-center my-4">Datos personales</h3>
+    <form action="guardar.php" name="formulario" method="POST" onSubmit="return validar();">
+      <div class="form-group">
+        <label class="letra"><b>Nombres</b></label>
+        <input type="text" class="form-control letra" name="nombre" require placeholder="Por favor digite sus nombres">
+      </div>
+      <div class="form-group">
+        <label class="letra"><b>Apellidos</b> </label>
+        <input type="text" name="apellidos" class="form-control letra" require
+          placeholder="Por favor digite sus apellidos">
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Nacionalidad</b></label>
+          <select name="tipodoc" class="custom-select">
+            <option require selected disabled value="">Elegir</option>
+            <option value="colombiano">Colombiano</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Edad</b></label>
+          <input type="number" name="edad" class="form-control"  require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="letra"><b>Número de identificación</b></label>
+        <input type="number" name="numdoc" class="form-control letra"
+          placeholder="Porfavor digite número de identificación" require>
+      </div>
+
+      <div class="form-group needs-validation ">
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <legend class="col-form-label letra" require><b>Género</b></legend>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" value="hombre" type="text" id="hombre" name="genero" class="custom-control-input">
+              <label class="custom-control-label letra" for="hombre">Hombre</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" value="mujer" type="text" id="mujer" name="genero" class="custom-control-input">
+              <label class="custom-control-label letra" for="mujer">Mujer</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" value="otro" type="text" id="otro" name="genero" class="custom-control-input">
+              <label class="custom-control-label letra" for="otro">Otro</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3 my-6">
+            <label class="col-form-label letra" for="start"><b>Seleccione su fecha de nacimiento</b></label>
+            <input type="date" id="fechanacimiento" name="fechanacimiento" require value="2018-07-22" min="1920-01-01"
+              max="2020-09-10">
+          </div>
+        </div>
+      </div>
+      <p class="letra"><b>Seleccione el estrato en el que vive</b></p>
+      <div class="custom-control custom-radio custom-control-inline" require>
+        <input type="radio" id="customRadioInline1" type="number" value="1" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline1">Estrato 1</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline2" type="number" value="2" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline2">Estrato 2</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline3" type="number" value="3" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline3">Estrato 3</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline4" type="number" value="4" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline4">Estrato 4</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline5" type="number" value="5" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline5">Estrato 5</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline6" type="number" value="6" name="estrato" class="custom-control-input">
+        <label class="custom-control-label letra" for="customRadioInline6">Estrato 6</label>
+      </div><br><br>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Teléfono Fijo</b></label>
+          <input type="number" class="form-control" name="telefono" require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Celular</b></label>
+          <input type="number" class="form-control" name="celular" require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Ciudad</b></label>
+          <select type="text" name="ciudad" class="custom-select">
+            <option selected disabled value="" require>Elegir</option>
+            <option value="Leticia">Leticia</option>
+            <option value="Medellín">Medellín</option>
+            <option value="Arauca">Arauca</option>
+            <option value="Barranquilla">Barranquilla</option>
+            <option value="Cartagena de Indias">Cartagena de Indias</option>
+            <option value="Tunja">Tunja</option>
+            <option value="Manizales">Manizales</option>
+            <option value="Florencia">Florencia</option>
+            <option value="Yopal">Yopal</option>
+            <option value="Popayán">Popayán</option>
+            <option value="Valledupar">Valledupar</option>
+            <option value="Quibdó">Quibdó</option>
+            <option value="Montería">Montería</option>
+            <option value="Bogotá">Bogotá</option>
+            <option value="Inírida">Inírida</option>
+            <option value="San José del Guaviare">San José del Guaviare</option>
+            <option value="Neiva">Neiva</option>
+            <option value="Riohacha">Riohacha</option>
+            <option value="Santa Marta">Santa Marta</option>
+            <option value="Villavicencio">Villavicencio</option>
+            <option value="San Juan de Pasto">San Juan de Pasto</option>
+            <option value="San José de Cúcuta">San José de Cúcuta</option>
+            <option value="Mocoa">Mocoa</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Pereira">Pereira</option>
+            <option value="San Andrés">San Andrés</option>
+            <option value="Bucaramanga">Bucaramanga</option>
+            <option value="Sincelejo">Sincelejo</option>
+            <option value="Ibagué">Ibagué</option>
+            <option value="Cali">Cali</option>
+            <option value="Mitú">Mitú</option>
+            <option value="Puerto Carreño">Puerto Carreño</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Departamento</b></label>
+          <select type="text" name="departamento" class="custom-select">
+            <option selected disabled value="" require>Elegir</option>
+            <option value="Amazonas">Amazonas</option>
+            <option value="Antioquía">Antioquía</option>
+            <option value="Arauca">Arauca</option>
+            <option value="Atlántico">Atlántico</option>
+            <option value="Bolívar">Bolívar</option>
+            <option value="Boyacá">Boyacá</option>
+            <option value="Caldas">Caldas</option>
+            <option value="Caquetá">Caquetá</option>
+            <option value="Casanare">Casanare</option>
+            <option value="Cauca">Cauca</option>
+            <option value="Cesar">Cesar</option>
+            <option value="Chocó">Chocó</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Cundinamarca">Cundinamarca</option>
+            <option value="Guainía">Guainía</option>
+            <option value="Guaviare">Guaviare</option>
+            <option value="Huila">Huila</option>
+            <option value="La Guajira">La Guajira</option>
+            <option value="Magdalena">Magdalena</option>
+            <option value="Meta">Meta</option>
+            <option value="Nariño">Nariño</option>
+            <option value="Norte de Santander">Norte de Santander</option>
+            <option value="Putumayo">Putumayo</option>
+            <option value="Quindío">Quindío</option>
+            <option value="Risaralda">Risaralda</option>
+            <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+            <option value="Santander">Santander</option>
+            <option value="Sucre">Sucre</option>
+            <option value="Tolima">Tolima</option>
+            <option value="Valle del Cauca">Valle del Cauca</option>
+            <option value="Vaupés">Vaupés</option>
+            <option value="Vichada">Vichada</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>¿Con cuantas perosonas vive?</b></label>
+          <input type="number" class="form-control" name="personasconquevive" require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>¿Cuantos hijos tiene?</b></label>
+          <input type="number" name="numhijos" class="form-control" require>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>¿Cuenta con un dispositivo para conectarse?</b></label>
+          <input type="text" class="form-control" name="computador" placeholder="Teléfono, computador, table, etc..."
+            require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>¿Cuenta con internet en su casa?</b></label>
+          <input type="text" name="conexioninternet" class="form-control" require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Dirección</b></label>
+          <input type="text" class="form-control" name="direccion" placeholder="calle 000 # 00 - 00"
+            require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="letra"><b>Comuna</b></label>
+          <input type="number" name="comuna" class="form-control" require>
+          <div class="valid-tooltip">
+          </div>
+        </div>
+      </div>
+      <div class="container letra"><label><b>Ingrese su correo electrónico</b></label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" >@</span>
+          </div>
+          <input type="text" class="form-control" placeholder="alguien@gmail.com" name="correo"
+            aria-describedby="validatedInputGroupPrepend" require>
+        </div>
+
+        <br><br>
+        <h3 class="container titulos text-center my-4 titulo">Datos laborales</h3>
+        <br>
+
+        <div class="form-group needs-validation" novalidate>
+          <label class="letra"><b>Ocupación</b></label>
+          <input type="text" class="form-control letra"  name="ocupacion" require
+            placeholder="Por favor ingrese su ocupación">
+        </div>
+        <br>
+
+        <div class="form-row">
+          <div class="col-md-5 mb-3">
+            <label class="letra"><b>¿Cuenta con un empleo actualmente?</b></label>
+            <select type="text" name="tieneempleo" class="custom-select" >
+              <option  class="letra" require>Elegir</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+            <div class="invalid-tooltip">
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="letra"><b>¿Se quedo sin empleo por la pandemia?</b></label>
+            <select type="text" name="quedosinempleo" class="custom-select" >
+              <option  class="letra" require>Elegir</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+            <div class="invalid-tooltip">
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label class="letra"><b>¿Está buscando un empleo?</b></label>
+            <select type="text" name="buscaempleo" class="custom-select" id="buscaempleo">
+              <option  class="letra" require>Elegir</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+            <div class="invalid-tooltip">
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label class="letra"><b>Ha sido beneficiado por un subsidio de la alcaldia de Medellín</b></label>
+            <input type="text" class="form-control letra" name="beneficiadosubsidio" require 
+              placeholder="¿cuál?">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="letra"><b>¿Esta inscrito en registro y cesantías?</b></label>
+            <input type="text" class="form-control letra" name="registrocesantias"
+              placeholder="¿cuál?">
+          </div>
+        </div>
+        <br><br>
+        <p class="letra text-center"><b>¿Que tanto afectó la pandemia la situación laboral de tu comuna?</b></p>
+
+        <div class="slidecontainer">
+          <input type="range" type="number" min="1" name="afectopandemia" id="rango" require max="10" value="10" class="slider">
+          <p class="text-center" id="demo"></p>
+          <p class="container bg-dark text-white text-center my-4 letra"><b>Rango del 1 - 10</b></p>
+        </div>
+
+        <br><br>
+        <div id="margen">
+          <div class="form-row">
+            <div class="col-md-6 mb-4">
+              Acepto <input type="checkbox" name="condiciones" id="condiciones" require> <a
+                href="https://www.ambitojuridico.com/themes/custom/theme_legis/images/terminosycondicionesambito.pdf"
+                target="_blank">Terminos y condiciones</a> <img src="img/documento.png" width="20px" height="20px"
+                alt="">
+            </div>
+            <div class="col-md-6 mb-4">
+              Acepto <input type="checkbox" name="condiciones" id="condiciones" require> <a
+                href="https://www.sic.gov.co/sites/default/files/documentos/Politicas_Habeas_Data_0.pdf"
+                target="_blank">Política de datos</a> <img src="img/documento.png" width="20px" height="20px" alt="">
+            </div>
+          </div>
+        </div>
+
+        <button class="container button letra" id="registrarse" name="registrarse" type="submit">Enviar mis
+          datos</button>
+
+
+        <br><br>
+
+      </div>
+    </form>
+  </div>
+  <br><br><br><br>
+
+  <footer class="page-footer font-small stylish-color-dark pt-4">
+
+ <!-- Footer -->
+ <footer class="page-footer font-small pt-4" style="background-color: black">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+  
+    <!-- Grid row -->
+    <div class="row">
+  
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+  
+        <!-- Content -->
+        <span><h5 class="font-weight-bold text-uppercase-center mt-3 mb-4">Hermandad Organizada Por Esperanza</h5>
+        <p class=""><i>El futuro es ahora, cuida tu salud!</i></p></span>
+        
+  
+      </div>
+      <!-- Grid column -->
+  
+      <hr class="clearfix w-100 d-md-none">
+  
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+  
+        <!-- Links -->
+        <h6 class="font-weight-bold text-uppercase mt-3 mb-4">Alcaldía de Medellín</h6>
+  
+      
+          <div style="margin-left:38px">
+            <a href="https://www.medellin.gov.co/" target="_blank"><img src="img/kmedellin.png" class="mt-3 mb-4" width="90px" height="122px" alt=""></a>
+          </div>
+          
+  
+      </div>
+      <!-- Grid column -->
+  
+      <hr class="clearfix w-100 d-md-none">
+  
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+  
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Proyecto</h5>
+  
+        <ul class="list-unstyled">
+          <li>
+            <a href="index.html"><img src="img/fon.png" class="mt-3 mb-4" width="100px" height="100px"  alt=""></a>
+          </li>
+          
+  
+      </div>
+      <!-- Grid column -->
+  
+      <hr class="clearfix w-90 d-md-none">
+  
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+  
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contrataciones</h5>
+  
+        <ul class="list-unstyled">
+          <li>
+            <a class="letra mt-3 mb-4 letra" target="_blank" href="https://www.facebook.com/genesis.contreras.1272">- Gen Contreras.</a>
+          </li>
+          <li>
+            <a class="letra mt-3 mb-4 letra" href="#!">- Kevin Posada.</a>
+          </li>
+          <li>
+            <a class="letra mt-3 mb-4 letra" href="#!">- Alejandro Orrego.</a>
+          </li>
+        </ul>
+  
+      </div>
+      <!-- Grid column -->
+  
+    </div>
+    <!-- Grid row -->
+  
+  </div>
+  <!-- Footer Links -->
+  
+  
+  
+  
+  
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center stylish-color-dark">
+    <li class="list-inline-item">
+      <a href="https://www.facebook.com/" class="btn-floating btn-fb mx-1">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a href="https://www.twitter.com/" class="btn-floating btn-tw mx-1">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1">
+        <i class="fab fa-google-plus-g"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1">
+        <i class="fab fa-linkedin-in"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribbble mx-1">
+        <i class="fab fa-dribbble"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+  <hr style="background-color:white">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center stylish-color-dark py-3">© 2020 Copyright:
+    <a href="">Todos los derechos reservados  H.O.P.E</a>
+  </div>
+  <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+
+  <script>
+    var slider = document.getElementById("rango");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    }
+
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > x.length) { slideIndex = 1 }
+      x[slideIndex - 1].style.display = "block";
+      setTimeout(carousel, 2000);
+    }
+    function validar(){ 
+        if (document.getElementById('condiciones').checked){ 
+            return true; 
+        } 
+        else { 
+            alert("Acepte terminos y condiciones para enviar sus datos"); 
+            return false; 
+        } 
+    } 
+   
+  </script>
+</body>
+
+</html>
+
